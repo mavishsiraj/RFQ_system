@@ -151,8 +151,8 @@ Join a room with `auction:join(rfqId)` to get per-auction updates.
 
 > **Note:** The backend is hosted on Render's free tier. If it hasn't been used in a while, the first request may take ~20–30 seconds to wake up. That's normal — just wait a moment and refresh.
 
-- Frontend: `[your Netlify URL]`
-- Backend: `[your Render URL]`
+- Frontend: `https://rfqs.netlify.app/`
+- Backend: `https://rfq-system-fk8t.onrender.com`
 
 ---
 
