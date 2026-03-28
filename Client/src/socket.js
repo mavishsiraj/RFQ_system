@@ -5,7 +5,7 @@ import { io } from "socket.io-client";
 // Using window.location.origin makes this work in both environments.
 const SOCKET_URL = import.meta.env.DEV
   ? "http://localhost:3001"
-  : window.location.origin;
+  :  "https://rfq-system-fk8t.onrender.com";
 
 const socket = io(SOCKET_URL, {
   autoConnect: true,

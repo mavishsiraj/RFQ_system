@@ -1,4 +1,4 @@
-const BASE = "/api";
+const BASE = "https://rfq-system-fk8t.onrender.com/api";
 
 async function request(url, options = {}) {
   const res = await fetch(`${BASE}${url}`, {
