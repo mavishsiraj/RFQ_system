@@ -28,7 +28,6 @@ export function getSupplierBestBid(rfqId, supplierId) {
     .get(rfqId, supplierId);
 }
 
-
 export function recomputeRanks(rfqId, previousRanked) {
   const ranked = getLatestBidsRanked(rfqId);
   const currentL1 = ranked.length > 0 ? ranked[0].supplier_id : null;
@@ -64,20 +63,16 @@ export function recomputeRanks(rfqId, previousRanked) {
   return { previousL1, currentL1, ranked, ranksChanged };
 }
 
-
-
 function isInTriggerWindow(rfq, nowMs) {
   const closeMs = new Date(rfq.bid_close_time).getTime();
   const windowStart = closeMs - rfq.trigger_window_mins * 60 * 1000;
   return nowMs >= windowStart && nowMs <= closeMs;
 }
 
-
 function extendAuction(rfq, reason) {
   const currentClose = new Date(rfq.bid_close_time).getTime();
   const forcedClose = new Date(rfq.forced_close).getTime();
 
- 
   if (currentClose >= forcedClose) {
     return null;
   }
