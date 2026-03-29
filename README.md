@@ -29,6 +29,12 @@ If I were adding it: JWT tokens issued on login, with the user's ID and role (bu
 
 Scoping it out was a deliberate call, not an oversight.
 
+## Why SQLite (now) and PostgreSQL (later)
+
+- SQLite is used for fast setup in this prototype: zero config, single file DB, easy cross-platform local development.
+- Switching to PostgreSQL is planned for production: better concurrency, performance at scale, data durability, and easier managed deployment (Cloud SQL/RDS/Azure DB).
+- The app is architected so DB access is isolated in `Server/config/db.js` and can be swapped with minimal code changes.
+
 ---
 ## Repo structure
 
