@@ -4,7 +4,7 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const db = new Database(path.join(__dirname, "auction.db"));
+const db = new Database(path.join(__dirname, "../auction.db"));
 
 db.pragma("journal_mode = WAL");
 db.pragma("foreign_keys = ON");

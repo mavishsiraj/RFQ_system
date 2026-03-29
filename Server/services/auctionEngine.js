@@ -1,4 +1,4 @@
-import db from "./db.js";
+import db from "../config/db.js";
 
 export function getLatestBidsRanked(rfqId) {
   const rows = db
@@ -130,7 +130,6 @@ export function processBid(rfqId, previousRanked) {
   if (now > forcedMs) throw new Error("Auction is force-closed");
   if (now > closeMs) throw new Error("Auction bidding period has ended");
 
-  
   const { previousL1, currentL1, ranked, ranksChanged } =
     recomputeRanks(rfqId, previousRanked);
 
@@ -147,7 +146,6 @@ export function processBid(rfqId, previousRanked) {
       extended = !!newCloseTime;
 
     } else if (trigger === "RANK_CHANGE") {
-      
       if (ranksChanged) {
         reason = "Supplier rank changed during trigger window";
         newCloseTime = extendAuction(rfq, reason);
@@ -179,8 +177,6 @@ export function processBid(rfqId, previousRanked) {
   return { ranked, extended, newCloseTime, reason };
 }
 
-
-
 export function validateBidImprovement(rfqId, supplierId, newTotal) {
   const rfq = db.prepare(`SELECT min_bid_decrement FROM rfqs WHERE id = ?`).get(rfqId);
   const existing = getSupplierBestBid(rfqId, supplierId);
@@ -211,8 +207,6 @@ export function validateBidImprovement(rfqId, supplierId, newTotal) {
   return { valid: true };
 }
 
-
-
 export function updateAuctionStatuses() {
   const now = new Date().toISOString();
   const closedIds = [];
@@ -232,7 +226,6 @@ export function updateAuctionStatuses() {
     closedIds.push(id);
   }
 
-  
   const closable = db
     .prepare(
       `SELECT id FROM rfqs WHERE status = 'ACTIVE' AND bid_close_time <= ? AND forced_close > ?`
