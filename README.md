@@ -5,6 +5,9 @@ A full-stack RFQ (Request for Quotation) system built with React + Vite on the f
 Built for a take-home assignment. The focus was on getting the auction logic right — auto-extensions, ranking, bid validation, and real-time updates — rather than bolting on features that weren't asked for.
 
 ---
+
+![Flow Diagrams — State Machine, Bid Submission, Extension Logic](./assets/flow-diagrams-state-machine-bid-submission-extension-logic.png)
+
 ## What it does
 
 - **Create RFQ auctions** with configurable British Auction rules
