@@ -6,7 +6,7 @@ Built for a take-home assignment. The focus was on getting the auction logic rig
 
 ---
 
-![Flow Diagrams — State Machine, Bid Submission, Extension Logic](./assets/flow-diagrams-state-machine-bid-submission-extension-logic.png)
+![Flow Diagrams — State Machine, Bid Submission, Extension Logic](Client/src/assets/flow-diagrams-state-machine-bid-submission-extension-logic.png)
 
 ## What it does
 
