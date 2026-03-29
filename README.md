@@ -5,7 +5,6 @@ A full-stack RFQ (Request for Quotation) system built with React + Vite on the f
 Built for a take-home assignment. The focus was on getting the auction logic right — auto-extensions, ranking, bid validation, and real-time updates — rather than bolting on features that weren't asked for.
 
 ---
-
 ## What it does
 
 - **Create RFQ auctions** with configurable British Auction rules
@@ -34,17 +33,51 @@ Scoping it out was a deliberate call, not an oversight.
 
 ```
 RFQ_system/
-├── Client/               # React frontend (Vite)
+├── Client/                   # React frontend (Vite)
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package.json
+│   ├── postcss.config.js
+│   ├── README.md
+│   ├── tailwind.config.js
+│   ├── vite.config.js
+│   ├── public/
+│   │   └── _redirects
 │   └── src/
-│       ├── pages/        # AuctionList, AuctionDetail, CreateRfq
-│       ├── api.js        # fetch wrapper for all REST calls
-│       └── socket.js     # Socket.IO client with reconnect
+│       ├── api.js
+│       ├── App.css
+│       ├── App.jsx
+│       ├── index.css
+│       ├── main.jsx
+│       ├── socket.js
+│       ├── assets/
+│       ├── components/
+│       │   ├── BidForm.jsx
+│       │   ├── Countdown.jsx
+│       │   └── StatusBadge.jsx
+│       └── pages/
+│           ├── AuctionDetail.jsx
+│           ├── AuctionList.jsx
+│           └── CreateRfq.jsx
 │
-└── Server/               # Node.js + Express backend
-    ├── index.js          # API routes + Socket.IO events
-    ├── db.js             # SQLite helpers (better-sqlite3)
-    ├── auctionEngine.js  # Core auction logic (ranking, extensions, validation)
-    └── seed.js           # Optional: seed test data
+└── Server/                   # Node.js + Express backend
+    ├── index.js
+    ├── package.json
+    ├── seed.js
+    ├── config/
+    │   └── db.js
+    ├── controllers/
+    │   ├── bidController.js
+    │   ├── rfqController.js
+    │   └── supplierController.js
+    ├── routes/
+    │   ├── bidRoutes.js
+    │   ├── rfqRoutes.js
+    │   └── supplierRoutes.js
+    ├── services/
+    │   └── auctionEngine.js
+    └── sockets/
+        └── socketHandler.js
 ```
 
 ---
@@ -52,6 +85,7 @@ RFQ_system/
 ## Running locally
 
 ### Prerequisites
+
 - Node.js 18+ (or latest LTS)
 - npm
 
@@ -83,7 +117,7 @@ cd Server
 npm run dev
 ```
 
-Server runs on `http://localhost:3000`
+Server runs on `http://localhost:3001`
 
 ### 4. Start the frontend
 
